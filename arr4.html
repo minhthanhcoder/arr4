@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. Khai báo mảng một chiều có tên arrayInt
+a. Nhập 5 giá trị số nguyên cho mảng từ bàn phím
+b. Hiển thị giá trị các phần tử của mảng
+c. In các phần tử có giá trị chẵn và tính tổng
+d. In các phần tử có chỉ số lẻ và tính tổng
+e. In giá trị các phần tử trong mảng là số nguyên tố
+f. In các phần tử có giá trị là max hoặc min
+g. Sắp xếp mảng giảm dần và in giá trị các phần tử mảng sau khi sắp xếp
+(không và có sử dụng hàm sort)
+h. Nhập vào một số nguyên và thống kê có bao nhiêu phần tử có giá trị
+như vậy
+2. Khai báo mảng 2 chiều số nguyên arrInt
+a. Nhập giá trị các phần tử của mảng từ bàn phím
+b. In giá trị các phần tử của mảng
+c. In giá trị các phần tử nằm trên đường biên (Coi mảng 2 chiều là ma
+trận)
+d. In giá trị các phần tử nằm trên đường chéo chính và phụ
+e. Sắp xếp mảng tăng dần theo dòng (không và có sử dụng hàm sort)
+3. Tạo mảng có tên là styles có giá trị các phần tử là “Jazz”, “Blues”
+a. Thêm phần tử “Rock-n-Roll” vào cuối mảng
+b. Thay thế phần tử nằm chính giữa mảng bằng “Classics” nếu mảng có
+tổng số phần tử là lẻ
+c. Xóa phần tử đầu tiên của mảng và hiển thị mảng
+d. Thêm phần tử “Rap” và “Reggae” vào đầu mảng và hiển thị
+4. Khai báo mảng một chiều
+a. Cho phép người dùng nhập các giá trị của mảng bằng hàm prompt và
+lưu trữ giá trị trong mảng cho đến khi người dùng nhập một giá trị
+không phải là số, một chuỗi trống hoặc nhấn “Cancel”
+b. Tính tổng các giá trị của mảng, in ra phần tử có giá trị max - min (không
+và có sử dụng hàm Math.max và Math.min)
+5. Khai báo và khởi tạo mảng 1 chiều số nguyên. Nhập vào 2 số nguyên a, b.
+Khởi tạo mảng gồm các phần tử của mảng số nguyên mà giá trị nằm giữa a và
+b
+ -->
+    <script>
+ let arrayInt = [];
+        // nhập 5 giá trị từ bàn phím cho mảng.
+        for (let i = 0; i < 5; i++) {
+            let number = parseInt(prompt('Nhập vào giá trị thứ ' + (i+1)));
+            arrayInt.push(number)
+            
+        }
+        //  hiển thị  giá trị các phần tử của mảng
+        for (let i = 0; i < arrayInt.length; i++) {
+            console.log(arrayInt[i])
+        }
+        // phần tử có giá trị chẵn và tính tổng.
+        let sum = 0;
+        for (let i = 0 ; i < arrayInt.length; i++) {
+            if (arrayInt[i]%2 == 0) {
+                console.log('các phần tử chẵn là ' + arrayInt[i] )
+            }  sum = sum + arrayInt[i];
+        }
+        console.log('Tổng giá trị số chẵn là:' + sum)
+         // phần tử có giá trị lẻ và tính tổng.
+         let sum1 = 0;
+        for (let i = 0 ; i < arrayInt.length; i++) {
+            if (arrayInt[i]%2 !== 0) {
+                console.log('các phần tử lẻ là' + arrayInt[i] )
+            }  sum1 = sum1 + arrayInt[i];
+        }
+        console.log('Tổng giá trị số lẻ là:' + sum1)
+
+        // in giá trị mảng là số nguyên tố
+        for(let i = 2 ; i<arrayInt.length-1; i++) {
+            if (arrayInt[i]%2 == 0) {
+                console.log('số nguyên tố là:' + arrayInt[i])
+            }
+        }
+        // in các phần tử min max
+        let max = 0;
+        let min = 0;
+
+        for (let i = 1; i < arrayInt.length; i++) {
+            if (arrayInt[i]>max) 
+            max = arrayInt[i]
+            if (arrayInt[i]<min) {
+                min = arrayInt[i]
+            }
+        }console.log('Số có giá trị lớn nhất là:' + max);
+        console.log('Số có giá trị nhỏ nhất là:' + min);
+
+        let arrayInt1 = [];
+        let row = parseInt(prompt('Nhập số hàng của mảng'))
+        let col = parseInt(prompt('Nhập số cột của mảng'))
+
+        for (let i = 0; i < row; i++) {
+            let arrRow = [];
+            for (let j = 0; j < col; j++) {
+                let number = parseInt(prompt('Nhập giá trị cho các phần tử'));
+                arrRow.push(number)
+            }
+            arrayInt1.push(arrRow);
+        }
+        console.log('mảng 2 chiều vừa nhập:', arrayInt1)
+        // in ra các phần tử biên
+        let arr1 = [];
+        for (let i = 0; i < col; i++) {
+            arr1.push(arrayInt1[0][i]);
+
+        } console.log('Giá trị đường biên 1 ', arr1);
+
+
+        let arr2 = [];
+        for (let i = 0; i < col; i++) {
+            arr2.push(arrayInt1[i][0]);
+
+        } console.log('Giá trị đường biên 2 ', arr2)
+
+        let arr3 = [];
+        for (let i = 0; i < col; i++) {
+            arr3.push(arrayInt1[i][col-1]);
+
+        } console.log('Giá trị đường biên 3 ', arr3)
+
+        let arr4 = [];
+        for (let i = 0; i < col; i++) {
+            arr4.push(arrayInt1[row-1][i]);
+
+        } console.log('Giá trị đường biên 4 ', arr4)
+    
+        // d. In giá trị các phần tử nằm trên đường chéo chính và phụ
+        let  cheoChinh = []
+        for (let i= 0; i < arrayInt1.length; i++) {
+           for (let j = 0; j < arrayInt1.length; j++) {
+            if(i==j) {
+             cheoChinh.push(arrayInt1[i])
+            }
+           }
+            
+        }console.log('các phần tử trên đường chéo chính là',cheoChinh);
+
+        // đường chéo phụ
+    </script>
+</body>
+</html>
